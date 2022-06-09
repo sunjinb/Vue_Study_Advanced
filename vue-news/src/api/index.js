@@ -11,8 +11,13 @@ function fetchNewsList() {
   return axios.get(`${config.baseUrl}news/1.json`);  // 두 줄은 동일 `(백틱) 개념
 }
 
-function fetchAskList() {
-  return axios.get(`${config.baseUrl}ask/1.json`);
+async function fetchAskList() {
+  try {
+    const response = await axios.get(`${config.baseUrl}ask/1.json`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function fetchJobsList() {
